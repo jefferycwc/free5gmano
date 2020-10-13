@@ -342,7 +342,7 @@ class ServiceMappingPluginView(ModelViewSet):
         return super().list(self, request, args, kwargs)
 
     def create(self, request, *args, **kwargs):
-        print("ServiceMappingPluginView (create views.py 345)")
+        print("ServiceMappingPluginView create (views.py 345)")
         """
             Create a new individual Service Mapping Plugin resource.
 
@@ -351,6 +351,7 @@ class ServiceMappingPluginView(ModelViewSet):
         return super().create(request, *args, **kwargs)
 
     def retrieve(self, request, *args, **kwargs):
+        print("ServiceMappingPluginView retrieves (views.py 354)")
         """
             Query Service Mapping Plugin information.
 

@@ -82,7 +82,7 @@ class SliceTemplateSerializer(serializers.ModelSerializer):
 
 
 class ServiceMappingPluginSerializer(serializers.ModelSerializer):
-    print("ServiceMappingPluginSerializer serializers.py 85")
+    print("ServiceMappingPluginSerializer (serializers.py 85)")
     def __init__(self, *args, **kwargs):
         if 'context' in kwargs.keys():
             view = kwargs['context']['view']
@@ -101,11 +101,11 @@ class ServiceMappingPluginSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
     def create(self, validated_data):
-        print("ServiceMappingPluginSerializer create serializers.py 104")
+        print("ServiceMappingPluginSerializer create (serializers.py 104)")
         response_data = dict()
         zipfile_check = ['deallocate/main.py', 'config.yaml', 'allocate/main.py']
         # Extract Zip file
-        print('validated_data: {}'.format(validated_data))
+        print('validated_data: {} (serializers.py 108)'.format(validated_data))
         with zipfile.ZipFile(validated_data['pluginFile']) as _zipfile:
             for file in _zipfile.filelist:
                 if file.filename in zipfile_check:
@@ -115,7 +115,7 @@ class ServiceMappingPluginSerializer(serializers.ModelSerializer):
                                     settings.PLUGIN_ROOT, validated_data['name']))
         # Assign Plugin config
         if not zipfile_check:
-            print('plugin root {} serializers.py 117'.format(settings.PLUGIN_ROOT))
+            print('plugin root {} (serializers.py 117)'.format(settings.PLUGIN_ROOT))
             with open(os.path.join(settings.PLUGIN_ROOT, validated_data['name'],
                                    'config.yaml')) as stream:
                 config = yaml.safe_load(stream)

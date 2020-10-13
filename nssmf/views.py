@@ -332,7 +332,7 @@ class ServiceMappingPluginView(ModelViewSet):
     queryset = ServiceMappingPluginModel.objects.all()
     serializer_class = ServiceMappingPluginSerializer
     response_data = dict()
-    print("ServiceMappingPluginView views.py 335")
+    print("ServiceMappingPluginView (views.py 335)")
     def list(self, request, *args, **kwargs):
         """
             Read information about an individual Service Mapping Plugin resource.
@@ -342,7 +342,7 @@ class ServiceMappingPluginView(ModelViewSet):
         return super().list(self, request, args, kwargs)
 
     def create(self, request, *args, **kwargs):
-        print("ServiceMappingPluginView create views.py 345")
+        print("ServiceMappingPluginView (create views.py 345)")
         """
             Create a new individual Service Mapping Plugin resource.
 

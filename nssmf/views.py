@@ -334,6 +334,7 @@ class ServiceMappingPluginView(ModelViewSet):
     response_data = dict()
     print("ServiceMappingPluginView (views.py 335)")
     def list(self, request, *args, **kwargs):
+        print("ServiceMappingPluginView list (views.py 337)")
         """
             Read information about an individual Service Mapping Plugin resource.
 

@@ -101,10 +101,11 @@ class ServiceMappingPluginSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
     def create(self, validated_data):
-        print("ServiceMappingPluginSerializer creatw serializers.py 104")
+        print("ServiceMappingPluginSerializer create serializers.py 104")
         response_data = dict()
         zipfile_check = ['deallocate/main.py', 'config.yaml', 'allocate/main.py']
         # Extract Zip file
+        print('validated_data: {}'.format(validated_data))
         with zipfile.ZipFile(validated_data['pluginFile']) as _zipfile:
             for file in _zipfile.filelist:
                 if file.filename in zipfile_check:

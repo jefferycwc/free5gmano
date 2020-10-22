@@ -71,7 +71,7 @@ class NetworkSliceSubnet(models.Model):
     nsInfo = models.ForeignKey(NsInfo, null=True, on_delete=models.CASCADE, related_name='nsInfo')
     sliceProfileList = models.ManyToManyField(SliceProfileList, related_name='sliceProfileList')
     #modify
-    mongodb = models.UUIDField(default=uuid.uuid4)
+    mongodb = models.UUIDField(default=uuid.uuid4, editable=True)
     nrfd = models.UUIDField(default=uuid.uuid4, editable=True)
     amfd = models.UUIDField(default=uuid.uuid4, editable=True)
     smfd = models.UUIDField(default=uuid.uuid4, editable=True)

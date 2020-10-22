@@ -14,10 +14,11 @@ from moi.enums import Modification, Scope
 class ObjectManagement(ModelViewSet):
     queryset = NetworkSliceSubnet.objects.all()
     serializer_class = NetworkSliceSubnetSerializer
-
+    print('enter ObjectManagement class')
     @csrf_exempt
     @action(detail=True, methods='PUT', name='createMOI')
     def create_moi(self, request, **kwargs):
+        print('create moi')
         global moi_object_serializer
 
         data = JSONParser().parse(request)
@@ -72,6 +73,7 @@ class ObjectManagement(ModelViewSet):
     @csrf_exempt
     @action(detail=True, methods='PATCH', name='modifyMOIAttributes')
     def modify_moi_attributes(self, request, **kwargs):
+        print('modify moi')
         global moi_object
         global moi_object_serializer
         response_data = {'status': 'OperationFailed'}

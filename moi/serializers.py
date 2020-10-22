@@ -59,9 +59,10 @@ class NsInfoSerializer(serializers.ModelSerializer):
 class NetworkSliceSubnetSerializer(serializers.ModelSerializer):
     class Meta:
         model = NetworkSliceSubnet
+        '''fields = ('nssiId', 'mFIdList', 'constituentNSSIIdList',
+                  "operationalState", 'administrativeState', 'nsInfo', 'sliceProfileList')'''
         fields = ('nssiId', 'mFIdList', 'constituentNSSIIdList',
-                  "operationalState", 'administrativeState', 'nsInfo', 'sliceProfileList')
-
+                  "operationalState", 'administrativeState', 'nsInfo', 'sliceProfileList','mongodb','nrfd','amfd','smfd','udrd','pcfd','udmd','nssfd','ausfd')
 
 class AMFSetSerializer(serializers.ModelSerializer):
     class Meta:

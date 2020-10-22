@@ -70,7 +70,17 @@ class NetworkSliceSubnet(models.Model):
     operationalState = models.TextField(default='ENABLED')
     nsInfo = models.ForeignKey(NsInfo, null=True, on_delete=models.CASCADE, related_name='nsInfo')
     sliceProfileList = models.ManyToManyField(SliceProfileList, related_name='sliceProfileList')
-
+    #modify
+    mongodb = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=True)
+    nrfd = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=True)
+    amfd = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=True)
+    smfd = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=True)
+    udrd = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=True)
+    pcfd = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=True)
+    udmd = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=True)
+    nssfd = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=True)
+    aufd = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=True)
+    #modify
 
 class AMFSet(models.Model):
     pLMNIdList = models.ManyToManyField(PLMNIdList, related_name='pLMNIdListId_AMFSet')

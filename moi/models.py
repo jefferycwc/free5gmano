@@ -59,7 +59,17 @@ class NsInfo(models.Model):
     nsState = models.TextField(null=True, blank=True)
     monitoringParameter = models.TextField(null=True, blank=True)
     _links = models.TextField(null=True, blank=True)
-
+    #modify
+    mongodb = models.UUIDField(null=True, blank=True)
+    nrfd = models.UUIDField(null=True, blank=True)
+    amfd = models.UUIDField(null=True, blank=True)
+    smfd = models.UUIDField(null=True, blank=True)
+    udrd = models.UUIDField(null=True, blank=True)
+    pcfd = models.UUIDField(null=True, blank=True)
+    udmd = models.UUIDField(null=True, blank=True)
+    nssfd = models.UUIDField(null=True, blank=True)
+    ausfd = models.UUIDField(null=True, blank=True)
+    #modify
 
 class NetworkSliceSubnet(models.Model):
     nssiId = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=True)

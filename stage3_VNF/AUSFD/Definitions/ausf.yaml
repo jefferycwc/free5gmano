@@ -1,7 +1,7 @@
 tosca_definitions_version: tosca_simple_profile_for_nfv_1_0_0
-description: udr
+description: ausf
 node_types:
-  tosca.nodes.nfv.VNF4:
+  tosca.nodes.nfv.VNF8:
     requirements:
     - virtualLink1:
         type: tosca.nodes.nfv.VL
@@ -10,12 +10,12 @@ metadata:
   template_name: free5GCSetup
 topology_template:
   substitution_mappings:
-    node_type: tosca.nodes.nfv.VNF4
+    node_type: tosca.nodes.nfv.VNF8
   node_templates:
     VDU1:
       type: tosca.nodes.nfv.VDU.Tacker
       properties:
-        name: free5gc-udr-VNF
+        name: ausf
         image: stage3_cp
         flavor: free5gc
         availability_zone: nova
@@ -33,36 +33,37 @@ topology_template:
           export GO111MODULE=off
           
           cd stage3
-          echo "configure UDR"
-          cat > config/udrcfg.conf <<- EOM
+          echo "configure AUSF"
+          cat > config/ausfcfg.conf <<- EOM
           info:
             version: 1.0.0
-            description: UDR initial local configuration
+            description: AUSF initial local configuration
           
           configuration:
             sbi:
-              scheme: http
-              ipv4Addr: 192.168.2.104
-              port: 29504
-              tls:
-                  log: free5gc/udrsslkey.log
-                  pem: free5gc/support/TLS/udr.pem
-                  key: free5gc/support/TLS/udr.key
-            mongodb:
-              name: free5gc
-              url: mongodb://192.168.2.110:27017
+              scheme: https
+              ipv4Addr: 192.168.2.108
+              port: 29509
+            serviceNameList:
+              - nausf-auth
             nrfUri: http://192.168.2.101:29510
+            plmnSupportList:
+              - mcc: 208
+                mnc: 93
+              - mcc: 123
+                mnc: 45
+            groupId: ausfGroup001
           EOM
           
-          #echo "initialize UDR"
-          #go build -o bin/udr -x src/udr/udr.go
+          #echo "initialize AUSF"
+          #go build -o bin/ausf -x src/ausf/ausf.go
           
-          echo "run UDR"
-          #sudo ./bin/udr
+          echo "run AUSF"
+          #sudo ./bin/ausf
     CP1:
       type: tosca.nodes.nfv.CP.Tacker
       properties:
-        ip_address: 192.168.2.104
+        ip_address: 192.168.2.108
         management: true
       requirements:
       - virtualLink:
@@ -78,7 +79,7 @@ topology_template:
       type: tosca.nodes.network.FloatingIP
       properties:
         floating_network: public
-        floating_ip_address: 172.24.4.104
+        floating_ip_address: 172.24.4.108
       requirements:
       - link:
           node: CP1

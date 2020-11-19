@@ -15,7 +15,7 @@ topology_template:
     VDU1:
       type: tosca.nodes.nfv.VDU.Tacker
       properties:
-        name: free5gc-nssf-VNF
+        name: nssf
         image: stage3_cp
         flavor: free5gc
         availability_zone: nova

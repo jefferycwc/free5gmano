@@ -15,7 +15,7 @@ topology_template:
     VDU1:
       type: tosca.nodes.nfv.VDU.Tacker
       properties:
-        name: mongo
+        name: mongodb
         image: ubuntu
         flavor: free5gc
         availability_zone: nova

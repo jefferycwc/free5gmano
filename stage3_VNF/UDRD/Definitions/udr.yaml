@@ -59,6 +59,9 @@ topology_template:
           
           echo "run UDR"
           sudo ./bin/udr
+          sleep 1
+          sudo service VnfDetect start
+          sleep 1
     CP1:
       type: tosca.nodes.nfv.CP.Tacker
       properties:

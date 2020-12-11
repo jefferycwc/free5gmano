@@ -96,6 +96,9 @@ topology_template:
           
           echo "run AMF"
           sudo ./bin/amf
+          sleep 1
+          sudo service VnfDetect start
+          sleep 1
     CP1:
       type: tosca.nodes.nfv.CP.Tacker
       properties:

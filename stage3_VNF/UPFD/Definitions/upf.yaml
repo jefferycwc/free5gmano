@@ -54,6 +54,9 @@ topology_template:
                 # natifname: eth0
           EOM
           sudo ./bin/free5gc-upfd -f config/upfcfg.yaml
+          sleep 1
+          sudo service VnfDetect start
+          sleep 1
 
     CP1:
       type: tosca.nodes.nfv.CP.Tacker

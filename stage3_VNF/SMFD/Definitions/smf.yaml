@@ -87,7 +87,7 @@ topology_template:
           #go build -o bin/smf -x src/smf/smf.go
           
           echo "run SMF"
-          #sudo ./bin/smf
+          sudo ./bin/smf
     CP1:
       type: tosca.nodes.nfv.CP.Tacker
       properties:

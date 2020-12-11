@@ -58,7 +58,7 @@ topology_template:
           #go build -o bin/udr -x src/udr/udr.go
           
           echo "run UDR"
-          #sudo ./bin/udr
+          sudo ./bin/udr
     CP1:
       type: tosca.nodes.nfv.CP.Tacker
       properties:

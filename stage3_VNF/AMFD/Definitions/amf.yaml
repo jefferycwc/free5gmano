@@ -95,7 +95,7 @@ topology_template:
           #go build -o bin/amf -x src/amf/amf.go
           
           echo "run AMF"
-          #sudo ./bin/amf
+          sudo ./bin/amf
     CP1:
       type: tosca.nodes.nfv.CP.Tacker
       properties:

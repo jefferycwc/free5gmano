@@ -82,7 +82,7 @@ topology_template:
           #go build -o bin/udm -x src/udm/udm.go
           
           echo "run UDM"
-          #sudo ./bin/udm
+          sudo ./bin/udm
     CP1:
       type: tosca.nodes.nfv.CP.Tacker
       properties:

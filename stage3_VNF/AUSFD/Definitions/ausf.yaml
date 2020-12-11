@@ -59,7 +59,7 @@ topology_template:
           #go build -o bin/ausf -x src/ausf/ausf.go
           
           echo "run AUSF"
-          #sudo ./bin/ausf
+          sudo ./bin/ausf
     CP1:
       type: tosca.nodes.nfv.CP.Tacker
       properties:

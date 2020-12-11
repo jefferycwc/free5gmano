@@ -362,7 +362,7 @@ topology_template:
           #go build -o bin/nssf -x src/nssf/nssf.go
           
           echo "run NSSF"
-          #sudo ./bin/nssf
+          sudo ./bin/nssf
     CP1:
       type: tosca.nodes.nfv.CP.Tacker
       properties:

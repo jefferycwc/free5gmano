@@ -85,12 +85,12 @@ topology_template:
           
           #echo "initialize SMF"
           #go build -o bin/smf -x src/smf/smf.go
-          
-          echo "run SMF"
-          sudo ./bin/smf
-          sleep 1
+          echo "start VnfDetect service"
           sudo service VnfDetect start
           sleep 1
+          echo "run SMF"
+          sudo ./bin/smf
+          
     CP1:
       type: tosca.nodes.nfv.CP.Tacker
       properties:

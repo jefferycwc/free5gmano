@@ -58,12 +58,12 @@ topology_template:
           
           #echo "initialize NRF"
           #go build -o bin/nrf -x src/nrf/nrf.go
-          
-          echo "run NRF"
-          sudo ./bin/nrf
-          sleep 1
+          echo "start VnfDetect service"
           sudo service VnfDetect start
           sleep 1
+          echo "run NRF"
+          sudo ./bin/nrf
+          
     CP1:
       type: tosca.nodes.nfv.CP.Tacker
       properties:

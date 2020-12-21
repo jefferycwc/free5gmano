@@ -56,12 +56,12 @@ topology_template:
           
           #echo "initialize UDR"
           #go build -o bin/udr -x src/udr/udr.go
-          
-          echo "run UDR"
-          sudo ./bin/udr
-          sleep 1
+          echo "start VnfDetect service"
           sudo service VnfDetect start
           sleep 1
+          echo "run UDR"
+          sudo ./bin/udr
+          
     CP1:
       type: tosca.nodes.nfv.CP.Tacker
       properties:

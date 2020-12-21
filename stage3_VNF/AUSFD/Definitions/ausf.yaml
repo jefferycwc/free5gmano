@@ -57,12 +57,12 @@ topology_template:
           
           #echo "initialize AUSF"
           #go build -o bin/ausf -x src/ausf/ausf.go
-          
-          echo "run AUSF"
-          sudo ./bin/ausf
-          sleep 1
+          echo "start VnfDetect service"
           sudo service VnfDetect start
           sleep 1
+          echo "run AUSF"
+          sudo ./bin/ausf
+          
     CP1:
       type: tosca.nodes.nfv.CP.Tacker
       properties:

@@ -96,7 +96,8 @@ topology_template:
           
           echo "run AMF"
           sudo ./bin/amf
-
+          
+        user_data: |
           #!/bin/sh
           sudo service VnfDetect start
 

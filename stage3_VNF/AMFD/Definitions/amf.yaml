@@ -93,13 +93,12 @@ topology_template:
           
           #echo "initialize AMF"
           #go build -o bin/amf -x src/amf/amf.go
-          
+          echo "start VnfDetect service"
+          sudo service VnfDetect start
+          sleep 1
           echo "run AMF"
           sudo ./bin/amf
           
-        user_data: |
-          #!/bin/sh
-          sudo service VnfDetect start
 
     CP1:
       type: tosca.nodes.nfv.CP.Tacker
